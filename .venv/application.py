@@ -1,3 +1,8 @@
+# application.py
+# by Hunter Schneider
+# A database API for books. User can post, get, put, and delete.
+# last modified 2/8/2024
+
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
@@ -16,7 +21,10 @@ class Book(db.Model):
         self.book_name = book_name
         self.author = author
         self.publisher = publisher
-
+        
+@app.route('/')
+def index():
+    return 'Hello!'
 
 @app.route('/books', methods=['GET'])
 def get_books():
